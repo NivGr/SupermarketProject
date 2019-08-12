@@ -1,0 +1,37 @@
+<div class="card cart large">
+  <span class="card-title">My Cart</span>
+  <div class="divider"></div>
+    <div class="card-content" *ngIf="cartProducts">
+      <!-- <ul class="myProducts" *ngFor = "let cartProduct of cartProducts">
+        <li><i class="material-icons" (click) = "deleteFromCart(cartProduct._id)">delete_forever</i>{{cartProduct.product[0].productName}} | Quantity: {{cartProduct.quantity}} | Price: {{cartProduct.totalPrice}}</li>
+      </ul> -->
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let cartProduct of cartProducts">
+            <td><i class="material-icons" (click) = "deleteFromCart(cartProduct._id)">delete_forever</i></td>
+            <td>{{cartProduct.product[0].productName}}</td>
+            <td>{{cartProduct.quantity}}</td>
+            <td>{{cartProduct.totalPrice | currency:'ILS':'symbol'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card-action">
+      <span><a class="clearAll left" (click) = "deleteAllProducts()">Clear All Products </a></span>
+    </div>
+  <div class="divider"></div>
+</div>
+<div class="card actions large">
+  <div class="card-action">
+    <span><a class="total left">Total Price: {{totalPrice | currency:'ILS':'symbol'}} </a></span>
+    <span><a class="order right" (click) = "sendCartToOrder()">Place Order</a></span>
+  </div>
+</div>

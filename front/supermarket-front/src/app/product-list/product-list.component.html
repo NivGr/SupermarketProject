@@ -1,0 +1,9 @@
+<div class="list col-sm-12">
+  <div class="card extrasmall">
+    <div class="card-content extrasmall">
+      <ul class="products d-flex flex-wrap">
+        <li class="products col-sm-3" *ngFor="let product of products"><app-product [product] = "product" (sendProductUp1) = "addToCart1( $event )" (editProduct1) = "editProduct2( $event )" [isAdmin] = "isAdmin"></app-product></li>
+      </ul>
+    </div>
+  </div>
+</div>

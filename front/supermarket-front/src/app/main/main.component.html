@@ -1,0 +1,32 @@
+<div class="row topBar">
+  <nav class= "light-blue lighten-2 col-sm-12">
+    <div class="nav-wrapper">
+      <a class="left">Welcome {{userFullName}}!</a>
+      <ul id="nav-mobile" class="right">
+        <li *ngIf="isAdmin"><a class="addProduct" (click) = "addNewProduct()">New Product</a></li>
+        <li><a class="logout" (click) = "userLogout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+<div class="container-fluid">
+  <div class="cartIcon" *ngIf = "!orderFinish && !isAdmin">
+    <i class="fas fa-shopping-cart" (mouseenter)= "cartShow()" *ngIf = "!isAdmin"></i>
+    <i class="filler" *ngIf = "isAdmin"></i>
+  </div>
+  <div class="row">
+      <div class="cart col-sm-3" *ngIf="cartOpen && !orderFinish">
+        <app-cart [myCart] = "myCart" [cartProducts] = "cartProducts" *ngIf = "!isAdmin" (sendCartProductUpToDelete) = "deleteProductFromCart( $event )"  (sendCartToOrderMain) = "openOrderDiv( $event )" (deleteAllCartProducts) = "deleteAllProductsFromCart( $event )"></app-cart>
+      </div>
+      <div class="edit col-sm-3" *ngIf = "openEditSideBar && !orderFinish">
+        <app-edit-sidebar  (updateProductInList) = "reloadProductList( $event )"  [productId] = "productId" [productName] = "productName" [productPrice] = "productPrice" [productImgURL] = "productImgURL" [isActionTypeAdd] = "isActionTypeAdd"></app-edit-sidebar>
+      </div>
+      <div class={{categoriesClass}} *ngIf="myProducts && !orderFinish">
+        <app-products (sendProductUp3) = "addToCartFinal( $event )"  (editProduct5) = "editProductForSideBar( $event )" [myProducts] = "myProducts" [isAdmin] = "isAdmin" [userFullName] = "userFullName"></app-products>
+      </div>
+    <div class="orderPhase col-sm-12" *ngIf = "orderFinish">
+        <a (click)="goBackFromOrder()">Go Back</a>
+        <app-order-details class="col-sm-12 col-push-sm-1" *ngIf = "cartProducts" (disableOrderMenu) = "hideOrderMenu( $event )"  [myCart] = "myCart" [cartProducts] = "cartProducts"></app-order-details>
+    </div>
+  </div>
+</div>

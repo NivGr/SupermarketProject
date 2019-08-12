@@ -1,0 +1,20 @@
+  <!-- <div class="container-fluid"> -->
+  <!-- <div class="row"> -->
+    <div class="categories col-sm-12">
+      <nav class= "white">
+          <span class="searchBar form-group has-search col-sm-2 right">
+            <input type="text" class="form-control" placeholder="Search Product" [(ngModel)] ="searchTerm" (ngModelChange)="searchEvent($event)">
+          </span>
+          <div class="categoryList col-sm-10">
+            <ul>
+              <li><a (click) = "getProducts('all')">All</a></li>
+              <li *ngFor="let category of categories"><a (click)= "getProducts(category.categoryName)">{{category.categoryName}}</a></li>
+            </ul>
+          </div>
+      </nav>
+      <div class="productList">
+        <app-product-list [products]= "searchedProducts" [isAdmin] = "isAdmin" (sendProductUp2) = "addToCart2( $event )" (editProduct3) = "editProduct4( $event )"></app-product-list>
+      </div>
+    </div>
+  <!-- </div> -->
+<!-- </div> -->

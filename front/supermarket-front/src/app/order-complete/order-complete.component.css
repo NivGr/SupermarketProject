@@ -1,0 +1,38 @@
+.loginEvent {
+  cursor: pointer;
+}
+
+img {
+  height: 45px;
+}
+
+.card-content {
+  overflow: auto;
+}
+
+.orderSumm {
+  background-color: #ffffff;
+}
+
+/*Creates table with scrollable tbody*/
+/*tbody {
+  display:block;
+  height:150px;
+  overflow:auto;
+}
+thead, tbody tr {
+  display:table;
+  /* width:100%; */
+  /* table-layout:fixed;
+}*/
+/*thead {
+  width: 100%
+}
+table {
+  width:100%;
+}
+
+.html2canvas-container {
+  width: 3000px !important; height: 3000px !important;
+}
+*/

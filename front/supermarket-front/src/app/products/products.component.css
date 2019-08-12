@@ -1,0 +1,39 @@
+ul {
+  color: black;
+}
+
+li {
+  color: black;
+}
+
+i {
+  color:black;
+  font-size: 20px;
+}
+
+.categories {
+  margin-top: 10px;
+}
+
+nav {
+  height: 45px;
+  line-height: 45px;
+}
+
+.productList {
+  text-align: left
+}
+
+.form-control {
+  height: 8px;
+  margin-top: -2px;
+  /* margin-top: 5px; */
+}
+
+.searchBar {
+  height: 8px;
+}
+
+nav {
+  overflow: auto;
+}

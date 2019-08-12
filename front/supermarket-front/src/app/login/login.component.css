@@ -1,0 +1,15 @@
+.loginEvent {
+  cursor: pointer;
+}
+
+.btn-large {
+  height: 60px;
+  margin-top: 40%;
+  margin-left: 6%;
+  background-color: lightblue;
+  color: white
+}
+
+.errors {
+  color: red;
+}

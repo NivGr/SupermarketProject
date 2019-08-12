@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row valign-wrapper">
+    <div id="login" class="welcome col-sm-4">
+      <app-login (sendUserUp) = "userCartInfo( $event )"></app-login>
+    </div>
+    <div id= "about" class="welcome col-sm-4">
+      <app-about></app-about>
+    </div>
+    <div id= "info" class="welcome col-sm-4">
+      <app-info [numberOfProducts] = "numberOfProducts" [numberOfOrders] = "numberOfOrders" [productImgs] = "productImgs" [myCart] = "myCart" [name] = "name" [isAdmin] = "isAdmin" [openCart] = "openCart" [totalPrice] = "totalPrice" [closedCart] = "closedCart"></app-info>
+    </div>
+  </div>
+</div>

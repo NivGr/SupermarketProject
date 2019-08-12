@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="row justify-content-sm-center">
+    <div class="signupForm col-sm-4 justify-content-sm-center">
+      <a name="action" href="welcome">Back To Login Screen</a>
+      <div class="signupForm1 card large" *ngIf="step1Display">
+        <div class="signup-screen">
+          <div class="space-bot text-center">
+            <div class="divider"></div>
+          </div>
+          <div class="card-stacked">
+            <div class="header center">
+              <span class="card-title">Signup Step 1</span>
+            </div>
+            <div class="divider"></div>
+              <div class="card-content">
+                <div class="form-register" method="post" name="register" novalidate>
+                  <div class="input-field col-sm-11 center">
+                  <input id="email" type="email" class="validate" [(ngModel)]="email" required/>
+                  <label for="email" class="active">Email</label>
+                </div>
+                <div class="input-field col-sm-11">
+                  <input id="id" type="number" class="validate" [(ngModel)]='userId' required/>
+                  <label for="id" class="active">ID</label>
+                 </div>
+                 <div class="input-field col-sm-11">
+                  <input id="password" type="password" name="password" class="validate" ng-minlength='6' [(ngModel)]= 'password' required>
+                  <label for="password" class="active">Password</label>
+                 </div>
+                 <div class="passwordAuth input-field col-sm-11">
+                   <input id="passwordAuth" type="password" name="passwordAuth" ng-minlength='6' class="validate" [(ngModel)]= 'passwordAuthentication' required>
+                   <label for="password" class="active">Password Authentication</label>
+                 </div>
+                  <div class="space-top text-center"></div>
+                 </div>
+               </div>
+             <div class="errors">
+               <ul *ngFor = "let error of errors">
+                 <li class="err">{{ error }} </li>
+               </ul>
+             </div>
+           </div>
+        </div>
+        <div class="card-action">
+          <a name="action" (click)= "validateSignup1(userId, email, password, passwordAuthentication)">Next</a>
+        </div>
+      </div>
+      <div class="signupForm2 card large" *ngIf="step2Display">
+        <div class="signup-screen">
+          <div class="space-bot text-center">
+            <div class="divider"></div>
+          </div>
+          <div class="card-stacked">
+            <div class="header center">
+              <span class="card-title">Signup Step 2</span>
+            </div>
+            <div class="divider"></div>
+            <div class="card-content">
+              <div class="form-register" method="post" name="register" novalidate>
+                <div class="input-field col-sm-11 center">
+                  <input id="firstName" type="text" class="validate" name="firstName" [(ngModel)]='firstName' required/>
+                  <label for="firstName" class="active">First Name</label>
+                </div>
+                <div class="input-field col-sm-11 center">
+                  <input id="lastName" type="text" class="validate" name="lastName" [(ngModel)]='lastName' required/>
+                  <label for="lastName" class="active">Last Name</label>
+                </div>
+                <div class="input-field col-sm-11">
+                  <input id="street" type="text" name="street" class="validate" [(ngModel)]='street' required>
+                  <label for="street" class="active">Street</label>
+                </div>
+                <div class="city">
+                  <select class="browser-default custom-select" [(ngModel)] = "city">
+                     <option selected>Select Your City</option>
+                     <option *ngFor="let city of cities">{{city}}</option>
+                  </select>
+                </div>
+                <div class="space-top text-center"></div>
+               </div>
+             <div>
+             <div class="errors">
+               <ul *ngFor = "let error of errors">
+                 <li class="err">{{ error }} </li>
+               </ul>
+             </div>
+           </div>
+        </div>
+        <div class="card-action">
+          <a class="right" name="action" (click)= "signup(userId, firstName, lastName, email, password, city, street)">Next</a>
+          <a class="left" name="action" (click)= "goBack()">Back</a>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+.main {
+  height: 500px;
+}
+
+i {
+  font-size: 30px;
+}
+
+.cartIcon {
+  position: relative;
+  top: 10px;
+  left: 2%;
+  height: 40px;
+  color: teal;
+}
+
+
+.filler {
+  position: relative;
+  top: 5px;
+  left: 5px;
+  color: gray;
+  height: 40px;
+}
+
+.topBar {
+  vertical-align: middle;
+}
+
+a {
+  margin-left: 2%;
+}
+
+.cartIcon {
+  cursor: pointer;
+}
+
+.container-fluid {
+  margin-left: 2%;
+}
+
+.cart {
+  margin-top: 2px;
+}
+
+.edit {
+  margin-top: 2px;
+}
+
+.addProduct {
+  width: 100%;
+}

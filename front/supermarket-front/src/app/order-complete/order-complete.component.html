@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="wrapper col-sm-12">
+       <div class="card">
+         <div class="card-stacked">
+           <div class="header center">
+             <span class="card-title">Order Placed!</span>
+           </div>
+           <div class="divider"></div>
+           <div class="card-content" *ngIf = "myCart">
+               Congratualtions! Your Purchase has been approved, <br/>
+               You can either go back to the main menu and by pressing 'OK' or download your order details as PDF.<br/>
+               Here is your order:<br/>
+               <div id="orderSumm" class="col-sm-6">
+                 <p>{{userName}}'s order from {{myCart.createDate.substring(0, 10)}}: </p>
+                 <table id="orderTable">
+                   <thead>
+                     <tr>
+                       <th>#</th>
+                       <th>Image</th>
+                       <th>Product</th>
+                       <th>Quantity</th>
+                       <th>Price</th>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr *ngFor="let orderProduct of myOrderProducts; let i = index">
+                       <td class="col-sm-2">{{i + 1}}</td>
+                       <td class="col-sm-2"><img src= "../pics/{{orderProduct.product[0].imgURL}}"/></td>
+                       <td class="col-sm-2">{{orderProduct.product[0].productName}}</td>
+                       <td class="col-sm-2">{{orderProduct.quantity}}</td>
+                       <td class="col-sm-2">{{orderProduct.totalPrice | currency:'ILS':'symbol'}}</td>
+                     </tr>
+                     <tr>Your Total is: {{totalPrice | currency:'ILS':'symbol'}}</tr>
+                   </tbody>
+                 </table>
+                 <p>Thank you for shopping at our store! Hope to see you again!</p>
+               </div>
+             <div class="card-action">
+               <a class= "loginEvent left" name="action" (click) = "goToMain()">OK</a>
+               <a class= "loginEvent right" name="action" (click) = "downloadPDF()">Download Order PDF</a>
+             </div>
+           </div>
+         </div>
+       </div>
+    </div>
+  </div>
+</div>

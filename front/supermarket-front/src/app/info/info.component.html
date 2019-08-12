@@ -1,0 +1,29 @@
+<div class="col-sm-12">
+     <div class="card medium horizontal">
+       <div class="card-stacked">
+         <div class="header center">
+           <span class="card-title">Some Info About Our Store</span>
+         </div>
+         <div class="divider"></div>
+         <div class="card-content">
+           <slideshow [height]="'40%'" [minHeight]="'100px'" [imageUrls]="productImgs"></slideshow><br/>
+           We have {{ numberOfProducts }} products available in our store! <br/>
+           {{ numberOfOrders }} Orders have been submitted in our store.  <br/>
+           <div class="userInfo" *ngIf = "name && !isAdmin">
+             <a id="notification">Notification:</a>
+             <p class="openCart" *ngIf = "openCart">
+               You have an open cart from {{ myCart.createDate.substring(0,10) }} <br/>
+               with {{ totalPrice | currency:'ILS':'symbol' }} worth of products.
+             </p>
+             <p class="closedCart" *ngIf = "closedCart">
+               Your last purchase was on <br/>
+               {{ myCart.createDate.substring(0,10) }}
+             </p>
+             <p class="welcomeUser" *ngIf = "!openCart && !closedCart">
+               Welcome {{ name }}!
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>

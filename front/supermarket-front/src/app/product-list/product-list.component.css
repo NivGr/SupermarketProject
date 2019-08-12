@@ -1,0 +1,11 @@
+.list {
+  margin-top: 15px;
+}
+
+.card {
+  height: 450px;
+}
+
+.card-content {
+  overflow-y: auto;
+}

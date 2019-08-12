@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="orderProducts col-sm-5 col-sm-push-1">
+       <div class="card large horizontal">
+         <div class="card-stacked">
+           <div class="header center">
+             <span class="card-title">My Order Products</span>
+           </div>
+           <div class="header right">
+             <a class="backToShop left" name="action" (click) = "backToShop()">Back To Shop</a>
+             <input type="text" class="form-control left" placeholder="Search Product" [(ngModel)] ="searchTerm" (ngModelChange)="searchEvent($event)">
+           </div>
+           <div class="divider"></div>
+           <div class="card-content" id="orderSummary">
+             <table>
+               <thead>
+                 <tr>
+                   <th>#</th>
+                   <th>Image</th>
+                   <th>Product</th>
+                   <th>Quantity</th>
+                   <th>Price</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let cartProduct of cartProducts; let i = index">
+                   <td>{{i + 1}}</td>
+                   <td><img src= "../assets/{{cartProduct.product[0].imgURL}}"/></td>
+                   <td [innerHTML] = "cartProduct.product[0].productName | highlight: searchTerm"></td>
+                   <td>{{cartProduct.quantity}}</td>
+                   <td>{{cartProduct.totalPrice | currency:'ILS':'symbol'}}</td>
+                 </tr>
+               </tbody>
+             </table>
+           </div>
+           <div class="card-action">
+             <a class="subtotal left" name="action">Order Total: {{totalPrice | currency:'ILS':'symbol'}}</a>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="orderDetails col-sm-5">
+        <div class="card large horizontal">
+          <div class="card-stacked">
+            <div class="header center">
+              <span class="card-title">My Order</span>
+              <!-- <div class="divider"></div>
+              <span class="card-title">Shipping Details: </span> -->
+            </div>
+            <div class="divider"></div>
+            <div class="card-content">
+              <label for= "city" class="active">City</label>
+              <div id="city" class="city">
+                <select class="browser-default custom-select" [(ngModel)] = "city" (dblclick)="defaultCityEvent()">
+                   <option *ngFor="let city of cities">{{city}}</option>
+                </select>
+                <br/>
+              </div>
+              <div class="input-field">
+                <input id= "street" type = "text" class= "validate" [(ngModel)] = "street" (dblclick)="defaultStreetEvent()" required>
+                <label for= "street" class="active">Street</label>
+              </div>
+              <div class="input-field">
+                <input id= "shippingDate" type = "date" class= "datepicker" [(ngModel)] = "shippingDate" [min] = "minDate" required>
+                <label for= "street" class="active">Shipping Date</label>
+                <!-- <span *ngIf = "isError" id="err">{{ errors[0] }}</span> -->
+              </div>
+              <div class="divider"></div>
+              <div class="paymentMethodDiv">
+                <label for="paymentMethod">Payment Method</label>
+                <select id="paymentMethod" class="browser-default custom-select col-sm-4 right" [(ngModel)] = "cCardMethod">
+                   <option selected>Visa</option>
+                   <option>AmericanExpress</option>
+                   <option>Mastercard</option>
+                </select>
+              </div>
+              <div class="payment">
+                <div class="input-field">
+                  <input id= "creditCard" type = "text" class= "validate" [(ngModel)] = "creditCard" required>
+                  <label for= "creditCard" class="active">Credit Card Number</label>
+                </div>
+              </div>
+              <ul *ngFor = "let error of errors">
+                <li class="err">{{ error }} </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card-action">
+            <a class="submitOrder right" name="action" (click)= "sendOrder()">Place Order</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

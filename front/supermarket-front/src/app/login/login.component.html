@@ -1,0 +1,30 @@
+<div class="col-sm-12">
+   <div class="card medium horizontal">
+     <div class="card-stacked">
+       <div class="header center">
+         <span class="card-title">Login</span>
+       </div>
+       <div class="divider"></div>
+       <div id="login" class="card-content" *ngIf = "!isLoginSuccess">
+         <div class="input-field">
+           <input id= "email" type= "text" class= "validate" [(ngModel)] = "email" required/>
+           <label for= "email" class="active">Email</label>
+         </div>
+         <div class="input-field">
+           <input id= "password" type= "password" class= "validate" [(ngModel)] = "password" required>
+           <label for= "password" class="active">Password</label>
+         </div>
+         <div class="errors" *ngIf = "showErr">
+           Wrong password or Email!
+         </div>
+       </div>
+       <div id= "goToShopping" class="card-content" *ngIf = "isLoginSuccess">
+         <a class="waves-effect waves-light btn-large hoverable" (click) = "goToShopping()">{{ shoppingStatus }} Shopping!</a>
+       </div>
+       <div class="card-action">
+         <a class= "loginEvent left" name="action" (click)= "loginUser(email, password)">Login</a>
+         <a class= "signup right" name="action" href="signup">Signup</a>
+       </div>
+     </div>
+   </div>
+ </div>

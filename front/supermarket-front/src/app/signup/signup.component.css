@@ -1,0 +1,20 @@
+a {
+  cursor: pointer;
+}
+
+label {
+  margin-left: 5px;
+}
+
+.err {
+  margin-left: 5px;
+}
+
+ul {
+  display: inline;
+  color: red;
+}
+
+.signupForm {
+  margin-top: 10px;
+}
